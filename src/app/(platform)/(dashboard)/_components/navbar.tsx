@@ -11,8 +11,9 @@ const NavBar = () => {
           <Logo />
         </div>
         <Button
+          variant="primary"
           size="sm"
-          className="rounded-sm hidden md:block h-auto  py-1.5 px-2"
+          className="rounded-sm hidden md:block h-auto py-1.5 px-2"
         >
           Create
         </Button>
@@ -36,15 +37,17 @@ const NavBar = () => {
             },
           }}
         />
-          <UserButton
+        <UserButton
           afterSignOutUrl="/"
-          appearance={{elements: {
-            avatarBox: {
-              height: 30,
-              width: 30
-            }
-          }}}
-          />
+          appearance={{
+            elements: {
+              avatarBox: {
+                height: 30,
+                width: 30,
+              },
+            },
+          }}
+        />
       </div>
     </nav>
   );
