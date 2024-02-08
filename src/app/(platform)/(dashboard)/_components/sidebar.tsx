@@ -9,13 +9,14 @@ import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { Accordion } from "@/components/ui/accordion";
 import NavItem, { Organization } from "./navItem";
-import { useEffect } from "react";
 
 interface SidebarProps {
   storageKey?: string;
 }
 
 export const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
+  // object of navitem open (true or false)
+  // nothing in expanded on initial render but is stored in local storage from then on
   const [expanded, setExpanded] = useLocalStorage<Record<string, any>>(
     storageKey,
     {},
@@ -74,7 +75,7 @@ export const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
       </div>
       <Accordion
         type="multiple"
-        defaultValue={defaultAccordionValue}
+        defaultValue={defaultAccordionValue} // array of what accordion navitem is open
         className="space-y-2"
       >
         {userMemberships.data.map(({ organization }) => (
