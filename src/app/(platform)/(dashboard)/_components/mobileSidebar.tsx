@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent } from "@/components/ui/sheet";
-import { useMobileSidebar } from "@/hooks/useMobileSidbar";
+import { Button } from "@/src/components/ui/button";
+import { Sheet, SheetContent } from "@/src/components/ui/sheet";
+import { useMobileSidebar } from "@/src/hooks/useMobileSidbar";
 import { Menu } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";

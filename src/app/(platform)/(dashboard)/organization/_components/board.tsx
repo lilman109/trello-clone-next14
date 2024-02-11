@@ -1,5 +1,5 @@
-import { deleteBoard } from "@/actions/deleteBoard";
-import { Button } from "@/components/ui/button";
+import { deleteBoard } from "@/src/actions/deleteBoard";
+import { Button } from "@/src/components/ui/button";
 import React from "react";
 
 type BoardProps = {
@@ -7,7 +7,7 @@ type BoardProps = {
   id: string;
 };
 
-const Board = ({ title, id }: BoardProps) => {
+export const Board = ({ title, id }: BoardProps) => {
   const deleteBoardWithId = deleteBoard.bind(null, id);
   return (
     <div className="flex justify-between items-center">
@@ -20,5 +20,3 @@ const Board = ({ title, id }: BoardProps) => {
     </div>
   );
 };
-
-export default Board;

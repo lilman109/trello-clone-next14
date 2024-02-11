@@ -1,10 +1,10 @@
-import { Logo } from "@/components/logo";
-import { Button } from "@/components/ui/button";
+import { Logo } from "@/src/components/logo";
+import { Button } from "@/src/components/ui/button";
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 import { Plus } from "lucide-react";
 import { MobileSidebar } from "./mobileSidebar";
 
-const NavBar = () => {
+export const NavBar = () => {
   return (
     <nav className="fixed z-50 top-0 px-4 w-full h-14 border-b shadow-sm bg-white flex items-center">
       <div className="flex items-center gap-x-4">
@@ -54,5 +54,3 @@ const NavBar = () => {
     </nav>
   );
 };
-
-export default NavBar;

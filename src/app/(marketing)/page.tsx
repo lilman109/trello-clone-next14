@@ -3,8 +3,8 @@ import localFont from "next/font/local";
 import { Poppins } from "next/font/google";
 import { Medal } from "lucide-react";
 
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { cn } from "@/src/lib/utils";
+import { Button } from "@/src/components/ui/button";
 
 const headingFont = localFont({
   src: "../../../public/fonts/font.woff2",

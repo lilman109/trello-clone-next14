@@ -1,7 +1,7 @@
 "use server";
 
 import { z } from "zod";
-import { db } from "@/lib/db";
+import { db } from "@/src/lib/db";
 import { revalidatePath } from "next/cache";
 
 const CreateBoard = z.object({

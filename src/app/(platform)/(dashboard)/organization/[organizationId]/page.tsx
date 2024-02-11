@@ -1,7 +1,7 @@
-import { create } from "@/actions/createBoard";
-import { Button } from "@/components/ui/button";
-import { db } from "@/lib/db";
-import Board from "../../_components/board";
+import { create } from "@/src/actions/createBoard";
+import { Button } from "@/src/components/ui/button";
+import { db } from "@/src/lib/db";
+import { Board } from "@/src/app/(platform)/(dashboard)/organization/_components/index";
 
 const OrganizationIdPage = async () => {
   const boards = await db.board.findMany({});

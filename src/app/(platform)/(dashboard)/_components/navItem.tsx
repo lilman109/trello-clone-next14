@@ -1,14 +1,14 @@
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
+import { cn } from "@/src/lib/utils";
 import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@/src/components/ui/accordion";
 import { Activity, CreditCard, Layout, Settings } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "@/src/components/ui/button";
+import { Skeleton } from "@/src/components/ui/skeleton";
 
 export type Organization = {
   id: string;
@@ -23,7 +23,7 @@ interface NavItemProps {
   organization: Organization;
   onExpand: (id: string) => void;
 }
-const NavItem = ({
+export const NavItem = ({
   isExpanded,
   isActive,
   organization,
