@@ -1,6 +1,6 @@
 import { deleteBoard } from "@/src/actions/deleteBoard";
-import { Button } from "@/src/components/ui/button";
 import React from "react";
+import { FormDelete } from "@/src/app/(platform)/(dashboard)/organization/_components/index";
 
 type BoardProps = {
   title: string;
@@ -10,12 +10,10 @@ type BoardProps = {
 export const Board = ({ title, id }: BoardProps) => {
   const deleteBoardWithId = deleteBoard.bind(null, id);
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center gap-x-2">
       <div key={id}>Board Title: {title}</div>
       <form action={deleteBoardWithId}>
-        <Button type="submit" variant="destructive" size="sm">
-          Delete
-        </Button>
+        <FormDelete />
       </form>
     </div>
   );
