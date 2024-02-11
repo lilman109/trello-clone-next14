@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { Input } from "@/src/components/ui/input";
+import { Input } from "@/components/ui/input";
 import React from "react";
 import { useFormStatus } from "react-dom";
 

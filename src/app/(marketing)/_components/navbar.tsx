@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import { Logo } from "@/src/components/logo";
-import { Button } from "@/src/components/ui/button";
+import { Logo } from "@/components/logo";
+import { Button } from "@/components/ui/button";
 
 export const Navbar = () => {
   return (

@@ -4,10 +4,10 @@ import Link from "next/link";
 import { useLocalStorage } from "usehooks-ts";
 import { useOrganization, useOrganizationList } from "@clerk/nextjs";
 
-import { Skeleton } from "@/src/components/ui/skeleton";
-import { Button } from "@/src/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
-import { Accordion } from "@/src/components/ui/accordion";
+import { Accordion } from "@/components/ui/accordion";
 import NavItem, { Organization } from "./navItem";
 
 interface SidebarProps {

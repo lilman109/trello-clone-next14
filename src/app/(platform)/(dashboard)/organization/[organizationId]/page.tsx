@@ -11,7 +11,7 @@ const OrganizationIdPage = async () => {
       <Form />
       <div className="space-y-2">
         {boards.map((board) => (
-          <Board id={board.id} title={board.title} />
+          <Board key={board.title} id={board.id} title={board.title} />
         ))}
       </div>
     </div>
