@@ -10,3 +10,9 @@ datasource db {
 generator client {
   provider = "prisma-client-js"
 }
+
+model Board {
+    id String @id @default(uuid())
+
+    title  String
+  }
