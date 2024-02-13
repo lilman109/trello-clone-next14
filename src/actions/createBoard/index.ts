@@ -1,9 +1,9 @@
 "use server";
 
-import { createSafeAction } from "@/src/lib/createSafeActions";
+import { createSafeAction } from "@/lib/createSafeActions";
 import { InputType, ReturnType } from "./type";
 import { auth } from "@clerk/nextjs";
-import { db } from "@/src/lib/db";
+import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 import { CreateBoard } from "./schema";
 
