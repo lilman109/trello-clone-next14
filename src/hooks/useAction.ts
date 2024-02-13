@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { ActionState, FieldErrors } from "@/src/lib/createSafeActions";
+import { ActionState, FieldErrors } from "@/lib/createSafeActions";
 
 type Action<TInput, TOutput> = (
   data: TInput,

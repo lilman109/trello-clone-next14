@@ -1,6 +1,6 @@
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/lib/utils";
 import {
   AccordionContent,
   AccordionItem,
