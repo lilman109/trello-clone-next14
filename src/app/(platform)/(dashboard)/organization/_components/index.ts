@@ -4,3 +4,4 @@ export * from "./form";
 export * from "./formInput";
 export * from "./formButton";
 export * from "./formDelete";
+export * from "./info";
