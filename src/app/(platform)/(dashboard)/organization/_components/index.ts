@@ -5,3 +5,4 @@ export * from "./formInput";
 export * from "./formButton";
 export * from "./formDelete";
 export * from "./info";
+export * from "./boardList";

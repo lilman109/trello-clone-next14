@@ -4,6 +4,7 @@ import { useOrganizationList } from "@clerk/nextjs";
 import { useParams } from "next/navigation";
 import { useEffect } from "react";
 
+// switch organiziation depending on the url
 export const OrgControl = () => {
   const params = useParams();
   const { setActive } = useOrganizationList();
