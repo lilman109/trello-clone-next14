@@ -9,6 +9,12 @@ export const generateMetadata = async ({
 }): Promise<Metadata> => {
   const { orgSlug } = auth();
 
+  if (!orgSlug) {
+    return {
+      title: "Organization",
+    };
+  }
+
   return {
     title: `${orgSlug}`,
   };
