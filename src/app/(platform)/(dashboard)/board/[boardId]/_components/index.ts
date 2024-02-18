@@ -1,2 +1,2 @@
 export * from "./boardNavbar";
-export * from "./boardTtileForm";
+export * from "./boardTitleForm";
