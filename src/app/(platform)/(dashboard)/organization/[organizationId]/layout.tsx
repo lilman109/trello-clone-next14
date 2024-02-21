@@ -5,7 +5,7 @@ import { Metadata } from "next";
 export const generateMetadata = async ({
   params,
 }: {
-  params: { id: string };
+  params: { organizationId: string };
 }): Promise<Metadata> => {
   const { orgSlug } = auth();
 
