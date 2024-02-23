@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { FormSubmit } from "@/components/form";
 import { Button } from "@/components/ui/button";
@@ -9,6 +9,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
+import { copyList } from "@/src/actions/copyList";
 import { deleteList } from "@/src/actions/deleteList";
 import { useAction } from "@/src/hooks/useAction";
 import { List } from "@prisma/client";
@@ -25,11 +26,23 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
     onError: (error) => toast.error(error),
   });
 
+  const { execute: executeCopy } = useAction(copyList, {
+    onSuccess: (data) => toast.success("List copied"),
+    onError: (error) => toast.error(error),
+  });
+
   const onDelete = (formData: FormData) => {
     const id = formData.get("id") as string;
     const boardId = formData.get("boardId") as string;
 
     executeDelete({ id, boardId });
+  };
+
+  const onCopy = (formData: FormData) => {
+    const id = formData.get("id") as string;
+    const boardId = formData.get("boardId") as string;
+
+    executeCopy({ id, boardId });
   };
 
   return (
@@ -58,7 +71,7 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
         >
           Add card...
         </Button>
-        <form>
+        <form action={onCopy}>
           <input hidden id="id" name="id" value={data.id} />
           <input hidden id="boardId" name="boardId" value={data.boardId} />
           <FormSubmit
