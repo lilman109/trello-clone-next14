@@ -7,6 +7,7 @@ import { useAction } from "@/src/hooks/useAction";
 import { Board } from "@prisma/client";
 import { ElementRef, useRef, useState } from "react";
 import { toast } from "sonner";
+import { useEventListener } from "usehooks-ts";
 
 interface BoardTitleFormProps {
   data: Board;
