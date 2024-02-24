@@ -25,16 +25,17 @@ function reorder<T>(list: T[], startIndex: number, endIndex: number) {
 export const ListContainer = ({ data, boardId }: ListContainerProps) => {
   const [orderedData, setOrderedData] = useState(data);
 
-  const { execute: executeUpdateListOrder } = useAction(updateListOrder, {
-    onSuccess: (data) => {
-      toast.success("List has been reordered");
-    },
-    onError: (error) => {
-      toast.error(error);
-    },
-  });
+  const { execute: executeUpdateListOrder, isLoading: isUpdateListLoading } =
+    useAction(updateListOrder, {
+      onSuccess: (data) => {
+        toast.success("List has been reordered");
+      },
+      onError: (error) => {
+        toast.error(error);
+      },
+    });
 
-  const { execute: executeUpdateCardOrder } = useAction(updateCardOrder, {
+  const { execute: executeUpdateCardOrder, isLoading: isUpdateCardLoading } = useAction(updateCardOrder, {
     onSuccess: (data) => {
       toast.success("Card has been reordered");
     },
@@ -146,7 +147,12 @@ export const ListContainer = ({ data, boardId }: ListContainerProps) => {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable droppableId="listContainer" type="list" direction="horizontal">
+      <Droppable
+        droppableId="listContainer"
+        type="list"
+        direction="horizontal"
+        isDropDisabled={isUpdateListLoading}
+      >
         {/*droppableId is not specific id because theh drop ara is one big listContainer*/}
         {(provided) => (
           <ol
@@ -155,7 +161,15 @@ export const ListContainer = ({ data, boardId }: ListContainerProps) => {
             className="flex gap-x-3 h-full"
           >
             {orderedData.map((list, index) => {
-              return <ListItem key={list.id} index={index} data={list} />;
+              return (
+                <ListItem
+                  key={list.id}
+                  index={index}
+                  data={list}
+                  isUpdateListLoading={isUpdateListLoading}
+                  isUpdateCardLoading={isUpdateCardLoading}
+                />
+              );
             })}
             {provided.placeholder}
             <ListForm />

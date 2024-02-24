@@ -9,9 +9,16 @@ import { Draggable, Droppable } from "@hello-pangea/dnd";
 interface ListItemProps {
   data: ListWithCards;
   index: number;
+  isUpdateListLoading: boolean;
+  isUpdateCardLoading: boolean;
 }
 
-export const ListItem = ({ data, index }: ListItemProps) => {
+export const ListItem = ({
+  data,
+  index,
+  isUpdateListLoading,
+  isUpdateCardLoading,
+}: ListItemProps) => {
   const textAreaRef = useRef<ElementRef<"textarea">>(null);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -27,16 +34,22 @@ export const ListItem = ({ data, index }: ListItemProps) => {
   };
 
   return (
-    <Draggable draggableId={data.id} index={index}>
+    <Draggable
+      draggableId={data.id}
+      index={index}
+      isDragDisabled={
+        isUpdateListLoading ? true : isUpdateCardLoading ? true : false
+      }
+    >
       {(provided) => (
         <li
           {...provided.draggableProps}
           ref={provided.innerRef}
-          className="shrink-0 h-full w-[272px] select-none"
+          className="shrink-0 h-full w-[272px] select-none relative"
         >
           <div
             {...provided.dragHandleProps}
-            className="w-full rounded-md bg-[#f1f2f4] shadow-md pb-2"
+            className="w-full rounded-md bg-[#f1f2f4] shadow-md pb-2 relative"
           >
             <ListHeader onAddCard={enableEditing} data={data} />
             <Droppable droppableId={data.id} type="card">
@@ -64,6 +77,9 @@ export const ListItem = ({ data, index }: ListItemProps) => {
               enableEditing={enableEditing}
               disableEditing={disableEditing}
             />
+            {isUpdateListLoading || isUpdateCardLoading ? (
+              <div className="absolute inset-0 bg-gray-200 opacity-50 rounded-md h-full"></div>
+            ) : null}
           </div>
         </li>
       )}
