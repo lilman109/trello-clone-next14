@@ -6,7 +6,7 @@ import { useFormStatus } from "react-dom";
 import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { FormErrors } from "./formErrors";
+import { FormErrors } from ".";
 
 interface FormInputProps {
   id: string;
@@ -60,7 +60,7 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
             placeholder={placeholder}
             type={type}
             disabled={pending || disabled}
-            className={cn("text-sm px-2 py-1 h7", className)}
+            className={cn("text-sm px-2 py-1 h-7", className)}
             aria-describedby={`${id}-error`}
           />
         </div>
@@ -69,5 +69,3 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
     );
   },
 );
-
-FormInput.displayName = "FormInput";

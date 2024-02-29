@@ -35,20 +35,21 @@ export const ListContainer = ({ data, boardId }: ListContainerProps) => {
       },
     });
 
-  const { execute: executeUpdateCardOrder, isLoading: isUpdateCardLoading } = useAction(updateCardOrder, {
-    onSuccess: (data) => {
-      toast.success("Card has been reordered");
-    },
-    onError: (error) => {
-      toast.error(error);
-    },
-  });
+  const { execute: executeUpdateCardOrder, isLoading: isUpdateCardLoading } =
+    useAction(updateCardOrder, {
+      onSuccess: (data) => {
+        toast.success("Card has been reordered");
+      },
+      onError: (error) => {
+        toast.error(error);
+      },
+    });
 
   useEffect(() => {
     setOrderedData(data);
   }, [data]);
 
-  const onDragEnd = (result: any) => {
+  const onDragEnd = (result: DropResult) => {
     const { destination, source, type } = result;
 
     if (!destination) {
