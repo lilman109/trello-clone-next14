@@ -3,16 +3,16 @@ import { QueryProvider } from "@/components/providers/queryProvider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "sonner";
 
-const ClerkLayout = ({ children }: { children: React.ReactNode }) => {
+const Platform = ({ children }: { children: React.ReactNode }) => {
   return (
     <ClerkProvider>
       <QueryProvider>
-      <Toaster position="bottom-right" />
-      <ModalProvider />
-      {children}
+        <Toaster position="bottom-right" />
+        <ModalProvider />
+        {children}
       </QueryProvider>
     </ClerkProvider>
   );
 };
 
-export default ClerkLayout;
+export default Platform;
