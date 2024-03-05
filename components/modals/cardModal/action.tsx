@@ -19,6 +19,9 @@ export const Actions = ({ data }: ActionsProps) => {
   const params = useParams();
   const cardModal = useCardModal();
 
+  console.log("params", params.boardId);
+  console.log("data", data);
+
   const { execute: executeCopy, isLoading: isLoadingCopy } = useAction(
     copyCard,
     {
